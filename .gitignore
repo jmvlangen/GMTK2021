@@ -1,0 +1,14 @@
+# Import cache
+.import/
+
+# Binaries
+bin/
+build/
+lib/
+
+# Git API
+git_api.gdnlib
+git_api.gdns
+
+# Ignore my emacs clones
+*~
