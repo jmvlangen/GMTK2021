@@ -12,6 +12,10 @@ radius = 19.6622
 height = 94.4303
 
 [node name="Person" type="Node2D"]
+position = Vector2( 423.168, 324.392 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Body" type="RigidBody2D" parent="."]
 can_sleep = false
