@@ -14,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func _integrate_forces(state):
+#func _integrate_forces(state):
 #	state.add_central_force(Vector2(0,-100));
-	if Input.is_action_just_pressed("move_up"):
-		state.apply_central_impulse(Vector2(100,0));
+#	if Input.is_action_just_pressed("move_up"):
+#		state.apply_central_impulse(Vector2(100,0));
