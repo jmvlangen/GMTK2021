@@ -3,13 +3,15 @@
 [ext_resource path="res://Person.tscn" type="PackedScene" id=1]
 
 [node name="Chain" type="Node2D"]
-position = Vector2( 518.577, 429.903 )
+position = Vector2( 518.577, 428.781 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Person0" parent="." instance=ExtResource( 1 )]
-hasControl = true
+has_control = true
+left_path = NodePath("../Personm1")
+right_path = NodePath("../Person1")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Person0"]
 node_a = NodePath("..")
@@ -21,6 +23,8 @@ node_b = NodePath("../../Personm1")
 
 [node name="Personm1" parent="." instance=ExtResource( 1 )]
 position = Vector2( -96, 0 )
+left_path = NodePath("../Personm2")
+right_path = NodePath("../Person0")
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="Personm1"]
 node_a = NodePath("..")
@@ -28,9 +32,12 @@ node_b = NodePath("../../Personm2")
 
 [node name="Personm2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -192, 0 )
+right_path = NodePath("../Personm1")
 
 [node name="Person1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 96, 0 )
+left_path = NodePath("../Person0")
+right_path = NodePath("../Person2")
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="Person1"]
 node_a = NodePath("..")
@@ -38,3 +45,4 @@ node_b = NodePath("../../Person2")
 
 [node name="Person2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 192, 0 )
+left_path = NodePath("../Person1")
