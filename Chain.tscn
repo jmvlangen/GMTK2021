@@ -30,16 +30,18 @@ position = Vector2( 48, 0 )
 rotation = 1.5708
 node_a = NodePath("..")
 node_b = NodePath("../../DoubleArm")
-length = 32.0
+length = 24.0
 rest_length = 16.0
+stiffness = 60.0
 
 [node name="LeftMuscle" type="DampedSpringJoint2D" parent="Head"]
 position = Vector2( -48, 0 )
 rotation = -1.5708
 node_a = NodePath("..")
 node_b = NodePath("../../LeftArm")
-length = 32.0
+length = 24.0
 rest_length = 16.0
+stiffness = 60.0
 
 [node name="DoubleArm" parent="." instance=ExtResource( 3 )]
 
@@ -60,16 +62,18 @@ position = Vector2( 48, 0 )
 rotation = 1.5708
 node_a = NodePath("..")
 node_b = NodePath("../../RightArm")
-length = 32.0
+length = 24.0
 rest_length = 16.0
+stiffness = 60.0
 
 [node name="LeftMuscle" type="DampedSpringJoint2D" parent="Head2"]
 position = Vector2( -48, 0 )
 rotation = -1.5708
 node_a = NodePath("..")
 node_b = NodePath("../../DoubleArm")
-length = 32.0
+length = 24.0
 rest_length = 16.0
+stiffness = 60.0
 
 [node name="RightArm" parent="." instance=ExtResource( 2 )]
 position = Vector2( 80, 0 )
