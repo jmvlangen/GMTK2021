@@ -5,13 +5,17 @@
 [ext_resource path="res://DoubleArm.tscn" type="PackedScene" id=3]
 
 [node name="Construct" type="Node2D"]
-position = Vector2( 268.268, 185.206 )
 __meta__ = {
 "_edit_group_": true
 }
 
+[node name="LeftArm" parent="." instance=ExtResource( 2 )]
+position = Vector2( -80, 0 )
+rotation = 3.14159
+
 [node name="Head" parent="." instance=ExtResource( 1 )]
-controlled = true
+position = Vector2( -48, 0 )
+player1 = true
 
 [node name="RightShoulder" type="PinJoint2D" parent="Head"]
 node_a = NodePath("..")
@@ -36,21 +40,16 @@ node_a = NodePath("..")
 node_b = NodePath("../../LeftArm")
 length = 32.0
 rest_length = 16.0
-stiffness = 5.0
-
-[node name="LeftArm" parent="." instance=ExtResource( 2 )]
-position = Vector2( -32, 0 )
-rotation = 3.14159
 
 [node name="DoubleArm" parent="." instance=ExtResource( 3 )]
-position = Vector2( 48, 0 )
 
 [node name="Head2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 96, 0 )
+position = Vector2( 48, 0 )
+player2 = true
 
 [node name="RightShoulder" type="PinJoint2D" parent="Head2"]
 node_a = NodePath("..")
-node_b = NodePath("../../RightArm2")
+node_b = NodePath("../../RightArm")
 
 [node name="LeftShoulder" type="PinJoint2D" parent="Head2"]
 node_a = NodePath("..")
@@ -60,7 +59,7 @@ node_b = NodePath("../../DoubleArm")
 position = Vector2( 48, 0 )
 rotation = 1.5708
 node_a = NodePath("..")
-node_b = NodePath("../../RightArm2")
+node_b = NodePath("../../RightArm")
 length = 32.0
 rest_length = 16.0
 
@@ -71,7 +70,6 @@ node_a = NodePath("..")
 node_b = NodePath("../../DoubleArm")
 length = 32.0
 rest_length = 16.0
-stiffness = 5.0
 
-[node name="RightArm2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 0 )
+[node name="RightArm" parent="." instance=ExtResource( 2 )]
+position = Vector2( 80, 0 )
