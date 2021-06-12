@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://PersonTest.tscn" type="PackedScene" id=1]
+
+[node name="Chain" type="Node2D"]
+
+[node name="p1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 163.74, 469.864 )
+
+[node name="p2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 658.521, 380.874 )
+hasControl = false
+
+[node name="p3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 783.106, 188.657 )
+hasControl = false
+
+[node name="p4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 243.831, 286.546 )
+hasControl = false
+
+[node name="p5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 469.864, 242.051 )
+hasControl = false
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2( 163.423, 470.028 )
+node_a = NodePath("../p1")
+node_b = NodePath("../p4")
+disable_collision = false
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2( 246.274, 283.535 )
+node_a = NodePath("../p4")
+node_b = NodePath("../p5")
+disable_collision = false
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2( 477.454, 247.987 )
+node_a = NodePath("../p5")
+node_b = NodePath("../p2")
+disable_collision = false
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2( 659.733, 377.373 )
+node_a = NodePath("../p2")
+node_b = NodePath("../p3")
+disable_collision = false
