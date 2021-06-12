@@ -1,48 +1,77 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Person.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Head.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SingleArm.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DoubleArm.tscn" type="PackedScene" id=3]
 
-[node name="Chain" type="Node2D"]
-position = Vector2( 518.577, 428.781 )
+[node name="Construct" type="Node2D"]
+position = Vector2( 268.268, 185.206 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Person0" parent="." instance=ExtResource( 1 )]
-has_control = true
-left_path = NodePath("../Personm1")
-right_path = NodePath("../Person1")
+[node name="Head" parent="." instance=ExtResource( 1 )]
+controlled = true
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Person0"]
+[node name="RightShoulder" type="PinJoint2D" parent="Head"]
 node_a = NodePath("..")
-node_b = NodePath("../../Person1")
+node_b = NodePath("../../DoubleArm")
 
-[node name="PinJoint2D2" type="PinJoint2D" parent="Person0"]
+[node name="LeftShoulder" type="PinJoint2D" parent="Head"]
 node_a = NodePath("..")
-node_b = NodePath("../../Personm1")
+node_b = NodePath("../../LeftArm")
 
-[node name="Personm1" parent="." instance=ExtResource( 1 )]
-position = Vector2( -96, 0 )
-left_path = NodePath("../Personm2")
-right_path = NodePath("../Person0")
-
-[node name="PinJoint2D4" type="PinJoint2D" parent="Personm1"]
+[node name="RightMuscle" type="DampedSpringJoint2D" parent="Head"]
+position = Vector2( 48, 0 )
+rotation = 1.5708
 node_a = NodePath("..")
-node_b = NodePath("../../Personm2")
+node_b = NodePath("../../DoubleArm")
+length = 32.0
+rest_length = 16.0
 
-[node name="Personm2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -192, 0 )
-right_path = NodePath("../Personm1")
+[node name="LeftMuscle" type="DampedSpringJoint2D" parent="Head"]
+position = Vector2( -48, 0 )
+rotation = -1.5708
+node_a = NodePath("..")
+node_b = NodePath("../../LeftArm")
+length = 32.0
+rest_length = 16.0
+stiffness = 5.0
 
-[node name="Person1" parent="." instance=ExtResource( 1 )]
+[node name="LeftArm" parent="." instance=ExtResource( 2 )]
+position = Vector2( -32, 0 )
+rotation = 3.14159
+
+[node name="DoubleArm" parent="." instance=ExtResource( 3 )]
+position = Vector2( 48, 0 )
+
+[node name="Head2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 96, 0 )
-left_path = NodePath("../Person0")
-right_path = NodePath("../Person2")
 
-[node name="PinJoint2D3" type="PinJoint2D" parent="Person1"]
+[node name="RightShoulder" type="PinJoint2D" parent="Head2"]
 node_a = NodePath("..")
-node_b = NodePath("../../Person2")
+node_b = NodePath("../../RightArm2")
 
-[node name="Person2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 192, 0 )
-left_path = NodePath("../Person1")
+[node name="LeftShoulder" type="PinJoint2D" parent="Head2"]
+node_a = NodePath("..")
+node_b = NodePath("../../DoubleArm")
+
+[node name="RightMuscle" type="DampedSpringJoint2D" parent="Head2"]
+position = Vector2( 48, 0 )
+rotation = 1.5708
+node_a = NodePath("..")
+node_b = NodePath("../../RightArm2")
+length = 32.0
+rest_length = 16.0
+
+[node name="LeftMuscle" type="DampedSpringJoint2D" parent="Head2"]
+position = Vector2( -48, 0 )
+rotation = -1.5708
+node_a = NodePath("..")
+node_b = NodePath("../../DoubleArm")
+length = 32.0
+rest_length = 16.0
+stiffness = 5.0
+
+[node name="RightArm2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 128, 0 )
